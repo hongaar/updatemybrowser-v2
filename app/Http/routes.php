@@ -11,4 +11,4 @@
 |
 */
 
-$app->get('/', 'BaseController@index');
+$app->get('/', 'BaseController@check');

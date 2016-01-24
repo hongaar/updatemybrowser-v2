@@ -3,5 +3,6 @@
 @section('title', 'Check your Browser')
 
 @section('content')
-    <p>hi</p>
+    <h2>Hello world</h2>
+    <p>All is fine</p>
 @endsection

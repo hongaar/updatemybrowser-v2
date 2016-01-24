@@ -1,4 +1,6 @@
 <!-- Inspired by HTML5 Boilerplate -->
+<!-- Idea by: Joram van den Boezem / Nabble / http://nabble.nl
+<!-- License source & content: MIT / https://opensource.org/licenses/MIT -->
 <!doctype html>
 <html lang=''>
 <head>
@@ -17,7 +19,7 @@
     <base href='<?php echo URL::to('/'); ?>/' />
 
     <!-- Styles -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/main.css'>
 
     <!-- Google Analytics -->
@@ -33,72 +35,72 @@
 </head>
 <body>
 
-    <!-- The content -->
-    <div id='wrapper'>
-        <div id='headerwrapper'>
-            <div id='header'>
-                <!-- Logo by Alex Roman: http://www.icanbecreative.com/logo-vector-pack.html -->
-                <a href='browser'>
-                    <img src='images/logo.gif' alt='Logo' width='35' height='48' />
-                </a>
-                <h1>updatemybrowser.org</h1>
-                <h2>always fresh</h2>
-                <ul>
-                    <li>
-                        <a class='active bb-shadow' href='browser'>Browser Check</a>
-                    </li>
-                    <li>
-                        <a class='bb-shadow' href='widget'>Widget</a>
-                    </li>
-                    <li>
-                        <a class='bb-shadow' href='docs'>Documentation</a>
-                    </li>
-                    <li>
-                        <a class='bb-shadow' href='about'>About</a>
-                    </li>
-                </ul>
+    <header>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-sm-6'>
+                    <a href='.' title='updatemybrowser.org - always fresh'>
+                        <img src='images/logo.svg' alt='updatemybrowser.org - always fresh' width='500' height='75' class='img-responsive' />
+                    </a>
+                </div>
+                <nav class='col-sm-6'>
+                    <ul class='list-inline'>
+                        <li><a class='button active' href='.'>Browser Check</a></li>
+                        <li><a class='button' href='widget'>Widget</a></li>
+                        <li><a class='button' href='help'>Help</a></li>
+                        <li><a class='button' href='about'>About</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
+    </header>
 
+    <main class='container'>
         @yield('content')
+    </main>
 
-        <?php if (env('ADS_ENABLED')) : ?>
-            <div id='adwrapper'>
-                <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-                <!-- Main page responsive -->
-                <ins class='adsbygoogle'
-                     style='display:block'
-                     data-ad-client='<?php echo env('ADS_CLIENT'); ?>'
-                     data-ad-slot='<?php echo env('ADS_SLOT'); ?>'
-                     data-ad-format='auto'></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        <?php endif; ?>
+    <?php if (env('ADS_ENABLED')) : ?>
+        <aside class='container' id='adwrapper'>
+            <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+            <!-- Main page responsive -->
+            <ins class='adsbygoogle'
+                 style='display:block'
+                 data-ad-client='<?php echo env('ADS_CLIENT'); ?>'
+                 data-ad-slot='<?php echo env('ADS_SLOT'); ?>'
+                 data-ad-format='auto'></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+    <?php endif; ?>
 
-        <div id='footerwrapper'>
-            <div id='footer'>
-                <p class='outro'>
-                    <strong>updatemybrowser.org</strong> is an initiative to spread modern browsers <strong>among all internet users</strong>. Websites these days have evolved to <strong>state of the art</strong> applications and todays browsers are built to serve them to you <strong>just right</strong>. But unfortunately, not everybody uses them, yet...'
-                </p>
-                <span class='copy'>
-                    &copy; <?php echo date('Y'); ?> <a href='http://nabble.nl' target='_blank'>Nabble</a> All right reserved
-                </span>
-                <div class='twitter'>
-                    <a id='twitter_update_list' class='twitter-timeline' href='https://twitter.com/updatemybrowser'
-                       data-widget-id='<?php echo env('TWITTER_WIDGET'); ?>'
-                       data-chrome='noheader nofooter noborders noscrollbar transparent'
-                    >Loading last tweet...</a>
-                    <a href='https://twitter.com/updatemybrowser' class='twitter-follow-button' data-show-count='false' data-size='large'>Follow @updatemybrowser</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
+    <footer>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-sm-6 outro'>
+                    <p>
+                        <strong>updatemybrowser.org</strong> is an initiative to spread modern browsers <strong>among all internet users</strong>. Websites these days have evolved to <strong>state of the art</strong> applications and todays browsers are built to serve them to you <strong>just right</strong>. But unfortunately, not everybody uses them, yet...
+                    </p>
+                    <mark>
+                        Made by <a href='http://nabble.nl' target='_blank'>Nabble</a> and our <a href='https://github.com/nabble/updatemybrowser/graphs/contributors' target='_blank'>open source contributers</a>.
+                    </mark>
+                </div>
+                <div class='col-sm-6'>
+                    <div class='twitter'>
+                        <a id='twitter_update_list' class='twitter-timeline' href='https://twitter.com/updatemybrowser'
+                           data-widget-id='<?php echo env('TWITTER_WIDGET'); ?>'
+                           data-chrome='noheader nofooter noborders noscrollbar transparent'
+                        >Loading last tweet...</a>
+                        <a href='https://twitter.com/updatemybrowser' class='twitter-follow-button' data-show-count='false' data-size='large'>Follow @updatemybrowser</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 
     <!-- The scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>
