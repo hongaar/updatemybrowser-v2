@@ -6,6 +6,6 @@ class BaseController extends Controller
 {
     public function index()
     {
-        return 'hoi';
+        return view('index');
     }
 }
